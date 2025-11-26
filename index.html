@@ -5,61 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battle UI - Seia</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .goblin-hp
+        {
+            width: 100%;
+        }
+        .goblin-hp
+        {
+            transition: width 400ms ease;
+        }
+        .battle:has(.actions .attack:hover) .goblin-hp
+        {
+            width: 60%;
+        }
+        .battle:has(.actions .magic:hover) .goblin-hp
+        {
+            width: 30%;
+        }
+    </style>
+
 </head>
 <body class="bg-linear-to-br from-gray-900 to-black text-white min-h-screen items-center p-6 flex flex-col">
-
-    <!-- Enemy Section -->
-    <div class="bg-gray-800 border-2 border-red-500 rounded-xl w-full max-w-3xl p-4 mb-8 relative shadow-[0_0_25px_rgba(239,68,68,0.4)] text-center">
-        <div>
-            <h2 class="text-lg font-bold">⚔️ Enemy: <span class="text-red-400">Goblin</span></h2>
-        </div>
-        <div class="bg-gray-700 w-full h-3 rounded-full mt-2 overflow-hidden">
-            <div class="bg-red-500 h-3 w-[70%] transition-all duration-500"></div>
-        </div>
-        <img src="https://tse3.mm.bing.net/th/id/OIP.t_65st2Ct_tBK4GaXwXwZgHaFl?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Goblin Image"
-            class="w-48 mx-auto mt-6 animate-pulse drop-shadow-[0_0_20px_rgba(255,0,0,0.6)]">
-    </div>
-
-    <!-- Player Section -->
-    <div class="bg-gray-800 border-2 border-blue-500 rounded-xl w-full max-w-3xl p-4 relative shadow-[0_0_25px_rgba(37,99,235,0.4)] text-center">
-        <div class="bg-gray-700 w-full h-auto rounded-full overflow-hidden">
-            <h2 class="text-lg font-bold">🧙‍♂️ Player: <span class="text-blue-300">Seia</span></h2>
-        </div>
-        <img src="https://www.kolpaper.com/wp-content/uploads/2021/04/Rudeus-Greyrat-Wallpaper.jpg" alt="Player"
-        class="w-48 mx-auto mt-6 drop-shadow-[0_0_20px_rgba(37,99,235,0.5)]"> 
-
-        <!-- HP/MP Bars -->
-        <div class="mt-2">
-            <p class="text-sm">HP</p>
-            <div class="bg-gray-700 w-full h-3 rounded-full overflow-hidden mb-2">
-                <div class="bg-green-500 h-3 w-full transition-all duration-500 bg-linear-to-r from-red-500 via-yellow-500 to-green-500"></div>
+    <div class="battle w-full max-w-3xl">
+        <!-- Enemy Section -->
+        <div class="bg-gray-800 border-2 border-red-500 rounded-xl w-full max-w-3xl p-4 mb-8 relative shadow-[0_0_25px_rgba(239,68,68,0.4)] text-center">
+            <div>
+                <h2 class="text-lg font-bold">⚔️ Enemy: <span class="text-red-400">Goblin</span></h2>
             </div>
-            <p class="text-sm">MP</p>
-            <div class="bg-gray-700 w-full h-3 rounded-full overflow-hidden">
-                <div class="bg-blue-500 h-3 w-[60%] transition-all duration-500"></div>
+            <div class="bg-gray-700 w-full h-3 rounded-full mt-2 overflow-hidden">
+                <div class="goblin-hp bg-red-500 h-3 transition-all duration-500 bg bg-linear-to-l from-red-300 via-red-600 to-red-900"></div>
             </div>
+            <img src="https://i.pinimg.com/736x/8d/1a/5b/8d1a5b3eaaa6517de4d8c8a0549a9bd8.jpg" alt="Goblin Image"
+                class="w-48 mx-auto mt-6 animate-pulse drop-shadow-[0_0_20px_rgba(255,0,0,0.6)]">
         </div>
 
-        <!-- Action and Dialogue Row -->
-        <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between">
-        <!-- Dialogue Box -->
-            <div class="flex-1 bg-gray-900 border-2 border-indigo-600 rounded-xl p-4">
-                <p class="text-gray-300 italic">💭 What will <span class="text-blue-400 font-semibold">Seia</span> do...</p>
+        <!-- Player Section -->
+        <div class="bg-gray-800 border-2 border-blue-500 rounded-xl w-full max-w-3xl p-4 relative shadow-[0_0_25px_rgba(37,99,235,0.4)] text-center">
+            <div class="bg-gray-700 w-full h-auto rounded-full overflow-hidden">
+                <h2 class="text-lg font-bold">🧙‍♂️ Player: <span class="text-blue-300">Seia</span></h2>
+            </div>
+            <img src="https://i.pinimg.com/736x/2d/dc/f1/2ddcf18b5f7cba39e4d80cc7aca9fb41.jpg" alt="Player"
+            class="w-48 mx-auto mt-6 h-58  drop-shadow-[0_0_20px_rgba(37,99,235,0.5)]"> 
+
+            <!-- HP/MP Bars -->
+            <div class="mt-2">
+                <p class="text-sm">HP</p>
+                <div class="bg-gray-700 w-full h-3 rounded-full overflow-hidden mb-2">
+                    <div class="bg-green-500 h-3 w-full transition-all duration-500 bg-linear-to-r from-red-500 via-yellow-500 to-green-500"></div>
+                </div>
+                <p class="text-sm">MP</p>
+                <div class="bg-gray-700 w-full h-3 rounded-full overflow-hidden">
+                    <div class="bg-blue-500 h-3 w-full transition-all duration-500 bg-linear-to-l from-blue-900 via-blue-600 to-blue-300"></div>
+                </div>
             </div>
 
-            <!-- Action Box -->
-            <div class="flex-1 bg-gray-900 border-2 border-indigo-600 rounded-xl p-4">
-                <h3 class="text-center text-indigo-400 font-semibold mb-2">Choose your action:</h3>
-                <div class="grid grid-cols-2 gap-3 text-center">
-                    <button class="bg-indigo-700 hover:bg-indigo-500 px-4 py-2 rounded-lg transition hover:scale-105">⚔️ Attack</button>
-                    <button class="bg-blue-700 hover:bg-blue-500 px-4 py-2 rounded-lg transition hover:scale-105">✨ Magic</button>
-                    <button class="bg-green-700 hover:bg-green-500 px-4 py-2 rounded-lg transition hover:scale-105">💊 Item</button>
-                    <button class="bg-red-700 hover:bg-red-400 px-4 py-2 rounded-lg transition hover:scale-105">🏃 Run</button>
+            <!-- Action and Dialogue Row -->
+            <div class="mt-8 flex flex-col md:flex-row gap-4 justify-between">
+            <!-- Dialogue Box -->
+                <div class="flex-1 bg-gray-900 border-2 border-indigo-600 rounded-xl p-4">
+                    <p class="text-gray-300 italic">💭 What will <span class="text-blue-400 font-semibold">Seia</span> do...</p>
+                </div>
+
+                <!-- Action Box -->
+                <div class="flex-1 bg-gray-900 border-2 border-indigo-600 rounded-xl p-4">
+                    <h3 class="text-center text-indigo-400 font-semibold mb-2">Choose your action:</h3>
+                    <div class="actions grid grid-cols-2 gap-3 text-center">
+                        <button class="attack bg-indigo-700 hover:bg-indigo-500 px-4 py-2 rounded-lg transition hover:scale-105">⚔️ Attack</button>
+                        <button class="magic bg-blue-700 hover:bg-blue-500 px-4 py-2 rounded-lg transition hover:scale-105">✨ Magic</button>
+                        <button class="bg-green-700 hover:bg-green-500 px-4 py-2 rounded-lg transition hover:scale-105">💊 Item</button>
+                        <button class="bg-red-700 hover:bg-red-400 px-4 py-2 rounded-lg transition hover:scale-105">🏃 Run</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <footer class="mt-10 text-gray-400 text-sm">
         &copy; 2025 Seia Battle UI
     </footer>
